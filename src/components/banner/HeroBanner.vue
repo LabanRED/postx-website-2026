@@ -57,7 +57,7 @@ const mobileVisibilityClass = computed(() => {
 </script>
 
 <template>
-  <section class="w-full px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 pb-6 font-poppins">
+  <section class="w-full px-4 sm:px-6 lg:px-8 font-poppins">
     <div class="max-w-[1600px] mx-auto">
       <!-- Desktop & Tablet Banner -->
       <div :class="desktopVisibilityClass" class="relative w-full">

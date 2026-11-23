@@ -282,7 +282,7 @@ const businessSetupServices = [
       class="w-full font-poppins"
       :class="
         isMobileMode
-          ? 'px-5 py-8'
+          ? 'px-5'
           : isDesktopOrTabletMode
             ? 'px-6 lg:px-8 py-12 lg:py-16'
             : 'px-5 md:px-6 lg:px-8 py-8 md:py-12 lg:py-16'
