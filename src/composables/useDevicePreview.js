@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 
-// Preview modes: 'auto' (100% natural responsive) | 'desktop' (1280px) | 'tablet' (768px) | 'mobile' (390px)
-export const activeDevice = ref('auto')
+// Preview mode locked to 'mobile'
+export const activeDevice = ref('mobile')
 
 // Only show in local development or if hostname is localhost
 export const isLocal = ref(
@@ -12,7 +12,7 @@ export const isLocal = ref(
      window.location.hostname.endsWith('.local')))
 )
 
-export const setDevice = (mode) => {
-  activeDevice.value = mode
+export const setDevice = () => {
+  activeDevice.value = 'mobile'
 }
 
