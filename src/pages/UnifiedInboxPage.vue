@@ -6,12 +6,20 @@ import unifiedInboxMobileBanner from '../images/post-unified-inbox-mobile-hero-b
   <section class="w-full px-4 sm:px-6 lg:px-8 font-poppins">
     <div class="max-w-[1600px] mx-auto flex flex-col items-center">
       <!-- Mobile Hero Banner -->
-      <div class="w-full">
+      <div class="relative w-full">
         <img
           :src="unifiedInboxMobileBanner"
           alt="Turn Every Conversation into a Customer - PostX Unified Inbox"
           class="w-full h-auto block select-none"
         />
+
+        <!-- Banner Top Heading Overlay -->
+        <div class="absolute inset-x-0 top-0 pt-5 sm:pt-6 px-4 text-center pointer-events-none">
+          <h2 class="font-poppins font-medium text-[18px] sm:text-[22px] leading-[1.25] tracking-tight text-black">
+            Turn Every Conversation
+            <span class="block text-primary">into a Customer.</span>
+          </h2>
+        </div>
       </div>
 
       <!-- Content Below Banner -->
