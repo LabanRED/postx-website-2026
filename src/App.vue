@@ -30,7 +30,7 @@ const handleViewportChange = (e) => {
 }
 
 const syncHash = () => {
-  currentHash.value = window.location.hash
+  currentHash.value = (window.location.hash || '').toLowerCase()
   if (pageMap[currentHash.value]) {
     if (isMobilePreview.value && scrollContainerRef.value) {
       scrollContainerRef.value.scrollTo({ top: 0, behavior: 'smooth' })
