@@ -20,11 +20,19 @@ const pageMap = {
 
 const currentHash = ref(typeof window !== 'undefined' ? window.location.hash : '')
 const scrollContainerRef = ref(null)
+const isDesktopViewport = ref(
+  typeof window !== 'undefined' ? window.matchMedia('(min-width: 768px)').matches : true
+)
+
+let desktopMediaQuery = null
+const handleViewportChange = (e) => {
+  isDesktopViewport.value = e.matches
+}
 
 const syncHash = () => {
   currentHash.value = window.location.hash
   if (pageMap[currentHash.value]) {
-    if (activeDevice.value === 'mobile' && scrollContainerRef.value) {
+    if (isMobilePreview.value && scrollContainerRef.value) {
       scrollContainerRef.value.scrollTo({ top: 0, behavior: 'smooth' })
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -35,14 +43,20 @@ const syncHash = () => {
 onMounted(() => {
   syncHash()
   window.addEventListener('hashchange', syncHash)
+  desktopMediaQuery = window.matchMedia('(min-width: 768px)')
+  isDesktopViewport.value = desktopMediaQuery.matches
+  desktopMediaQuery.addEventListener('change', handleViewportChange)
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('hashchange', syncHash)
+  desktopMediaQuery?.removeEventListener('change', handleViewportChange)
 })
 
 const activePage = computed(() => pageMap[currentHash.value] || HomePage)
-const isMobilePreview = computed(() => activeDevice.value === 'mobile')
+const isMobilePreview = computed(
+  () => activeDevice.value === 'mobile' && isDesktopViewport.value
+)
 
 const titaniumFrameStyle = computed(() =>
   isMobilePreview.value

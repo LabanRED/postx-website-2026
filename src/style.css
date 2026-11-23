@@ -10,12 +10,15 @@
 
 @layer base {
   :root {
+    color-scheme: light only;
     --primary: #00A5C5;
     --secondary: #2C8799;
   }
 
   body {
     font-family: var(--font-sans);
+    background-color: #ffffff;
+    color: #000000;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
