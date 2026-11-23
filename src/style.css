@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-poppins: "Poppins", ui-sans-serif, system-ui, sans-serif;
+
+  --color-primary: #00A5C5;
+  --color-secondary: #2C8799;
+}
+
+@layer base {
+  :root {
+    --primary: #00A5C5;
+    --secondary: #2C8799;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1 {
+    font-family: var(--font-poppins);
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 48px;
+    }
+  }
+
+  [data-device="mobile"] h1 {
+    font-size: 20px;
+  }
+
+  p {
+    font-family: var(--font-poppins);
+    font-weight: 400;
+    font-size: 14px;
+    color: #000000;
+  }
+
+  @media (min-width: 768px) {
+    p {
+      font-size: 16px;
+    }
+  }
+
+  [data-device="mobile"] p {
+    font-size: 14px;
+  }
+
+  section {
+    margin-block: 30px;
+    scroll-margin-top: 136px;
+  }
+}
+
+/* Button Layouts & Styles */
+@layer components {
+  .btn {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    padding: 16px 40px;
+    /* Mobile padding: height 16px (top/bottom), width 40px (left/right) */
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    text-decoration: none;
+    user-select: none;
+    white-space: nowrap;
+  }
+
+  @media (min-width: 768px) {
+    .btn {
+      padding: 16px 24px;
+      /* Desktop padding: height 16px (top/bottom), width 24px (left/right) */
+    }
+  }
+
+  /* Ensure simulated mobile mode uses mobile button padding even on desktop screens */
+  [data-device="mobile"] .btn {
+    padding: 16px 40px;
+  }
+
+  /* Primary Button (Black pill -> Cyan hover) */
+  .btn-primary {
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid transparent;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--primary, #00A5C5);
+    color: #ffffff;
+  }
+
+  /* Secondary Button / Hover State (Cyan pill -> Darker Cyan hover) */
+  .btn-secondary {
+    background-color: var(--primary, #00A5C5);
+    color: #ffffff;
+    border: 1px solid transparent;
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--secondary, #2C8799);
+    color: #ffffff;
+  }
+
+  /* Primary-outline Button (Transparent -> Black hover) */
+  .btn-primary-outline {
+    background-color: transparent;
+    color: #000000;
+    border: 1.5px solid #000000;
+  }
+
+  .btn-primary-outline:hover {
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+  /* Tertiary Button (White pill with shadow -> Subtle tint hover) */
+  .btn-tertiary {
+    background-color: var(--primary);
+    color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  }
+
+  .btn-tertiary:hover {
+    background-color: #f1f5f9;
+    color: #000000;
+  }
+}
