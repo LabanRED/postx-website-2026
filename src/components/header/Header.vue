@@ -8,7 +8,7 @@ const isServicesOpen = ref(false)
 const isMobileServicesOpen = ref(false)
 
 const services = [
-  { name: 'Unified inbox', href: '#unified-inbox' },
+  { name: 'Unified Inbox', href: '#unified-Inbox' },
   { name: 'Posting', href: '#posting' },
   { name: 'Frames', href: '#frames' },
   { name: 'Reviews', href: '#reviews' },
@@ -262,7 +262,7 @@ const handleSelectDevice = (mode) => {
       >
         <div
           v-if="isMobileMenuOpen"
-          class="mt-3 mx-2 rounded-2xl border border-neutral-900 bg-black/95 backdrop-blur-md p-5 shadow-xl"
+          class="mt-3 mx-2 rounded-3xl border border-neutral-900 bg-black backdrop-blur-md p-5 shadow-xl"
           :class="activeDevice === 'desktop' ? 'hidden' : (activeDevice === 'mobile' || activeDevice === 'tablet' ? 'block' : 'block md:hidden')"
         >
           <div class="space-y-2 flex flex-col">
@@ -270,7 +270,7 @@ const handleSelectDevice = (mode) => {
             <div>
               <button
                 type="button"
-                class="w-full rounded-lg px-3 py-2 text-base font-normal text-neutral-300 hover:bg-neutral-900 hover:text-white transition-colors flex items-center justify-between cursor-pointer"
+                class="w-full rounded-full px-3 py-2 text-base font-normal text-neutral-300 hover:bg-neutral-900 hover:text-white transition-colors flex items-center justify-between cursor-pointer"
                 @click="isMobileServicesOpen = !isMobileServicesOpen"
               >
                 <span>Services</span>
@@ -295,7 +295,7 @@ const handleSelectDevice = (mode) => {
                   v-for="service in services"
                   :key="service.name"
                   :href="service.href"
-                  class="block py-1.5 text-sm text-neutral-400 hover:text-white transition-colors"
+                  class="block py-1.5 text-sm text-neutral-400 hover:text-primary transition-colors"
                   @click="isMobileMenuOpen = false"
                 >
                   {{ service.name }}
@@ -305,7 +305,7 @@ const handleSelectDevice = (mode) => {
 
             <a
               href="#blogs"
-              class="rounded-lg px-3 py-2 text-base font-normal text-neutral-300 hover:bg-neutral-900 hover:text-white transition-colors"
+              class="rounded-full px-3 py-2 text-base font-normal text-neutral-300 hover:bg-neutral-900 hover:text-white transition-colors"
               @click="isMobileMenuOpen = false"
             >
               Blogs
@@ -313,13 +313,13 @@ const handleSelectDevice = (mode) => {
 
             <a
               href="#about"
-              class="rounded-lg px-3 py-2 text-base font-normal text-neutral-300 hover:bg-neutral-900 hover:text-white transition-colors"
+              class="rounded-full px-3 py-2 text-base font-normal text-neutral-300 hover:bg-neutral-900 hover:text-white transition-colors"
               @click="isMobileMenuOpen = false"
             >
               About
             </a>
 
-            <div class="pt-3 border-t border-neutral-900 mt-2">
+            <div class="pt-3 mt-2">
               <a
                 href="#contact"
                 class="btn btn-secondary w-full text-center"
